@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ba841ulrnpuw0" path="res://character_body_3d.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bkyickioj5ehg" path="res://classroom_camera.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cq0xv1kadsfoh" path="res://corridor_camera.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c7pgfa6tnaqam" path="res://Assets/Furniture/RigidTable.tscn" id="5_lquwl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,14 +22,14 @@ glow_enabled = true
 radius = 0.3
 height = 1.25
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tcde0"]
-radius = 0.3
-height = 1.2
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_dkxay"]
 top_radius = 0.3
 bottom_radius = 0.3
 height = 0.32500002
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tcde0"]
+radius = 0.3
+height = 1.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dkxay"]
 size = Vector3(1.7, 2.6000001, 0.5)
@@ -44,22 +45,31 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=626395670]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.199999, 0, -29.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.699999, 0, -26.2)
+collision_mask = 3
 script = ExtResource("1_ig7tw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1610854144]
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D" unique_id=519945171]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0.04102516)
+collision_mask = 2
+
+[node name="Body" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1610854144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725, 0)
 mesh = SubResource("CapsuleMesh_dkxay")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1058436241]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70000005, 0)
-shape = SubResource("CapsuleShape3D_tcde0")
 
 [node name="Nose" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1746893803]
 transform = Transform3D(-1.51808e-09, 0.17364813, 0.15756921, -0.19999999, -4.3711385e-08, 9.870756e-17, 8.6094625e-09, -0.9848076, 0.027783696, 0.03750038, 1.025, -0.29999924)
 mesh = SubResource("CylinderMesh_dkxay")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1058436241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70000005, 0)
+shape = SubResource("CapsuleShape3D_tcde0")
+
+[node name="HoldMarker Node3D" type="Node3D" parent="CharacterBody3D" unique_id=147158792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=175584687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0923686, 0)
 use_collision = true
 
 [node name="Floor - CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=556035737]
@@ -587,28 +597,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3151276, 0.2069827, 37.192
 size = Vector3(0.32158202, 0.19023438, 3.4)
 
 [node name="Classroom Camera" type="Camera3D" parent="." unique_id=1010193263 node_paths=PackedStringArray("player")]
-transform = Transform3D(0.7162803, 0, 0.6978127, 0, 1, 0, -0.6978127, 0, 0.7162803, 26.6, 2.1000004, -24.7)
+transform = Transform3D(0.7162803, 0, 0.6978127, 0, 1, 0, -0.6978127, 0, 0.7162803, 26.6, 2.0076318, -24.7)
 script = ExtResource("2_0xm2m")
 player = NodePath("../CharacterBody3D")
 
 [node name="Classroom Area" type="Area3D" parent="." unique_id=11935436]
-transform = Transform3D(0.7162803, 0, 0.6978127, 0, 1, 0, -0.6978127, 0, 0.7162803, 13.3, 0.5000004, -37.720448)
+transform = Transform3D(0.7162803, 0, 0.6978127, 0, 1, 0, -0.6978127, 0, 0.7162803, 13.3, 0.4076318, -37.720448)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Classroom Area" unique_id=735272617]
 transform = Transform3D(0.6427877, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.6427877, 0.5656662, 0.7, 0.66186523)
 shape = SubResource("BoxShape3D_dkxay")
 
 [node name="Corridor Camera" type="Camera3D" parent="." unique_id=299059017 node_paths=PackedStringArray("player")]
-transform = Transform3D(0.99317604, 0.10468705, -0.05139981, -0.08086385, 0.93572974, 0.3433233, 0.08403783, -0.33682406, 0.9378098, 13.2, 3.3000004, -25.2)
+transform = Transform3D(0.99317604, 0.10468705, -0.051399816, -0.08086385, 0.93572974, 0.3433233, 0.08403783, -0.33682406, 0.9378098, 13.2, 3.2076318, -25.2)
 script = ExtResource("3_h2yge")
 player = NodePath("../CharacterBody3D")
 
 [node name="Corridor Area" type="Area3D" parent="." unique_id=1313171307]
-transform = Transform3D(0.7162803, 0, 0.6978127, 0, 1, 0, -0.6978127, 0, 0.7162803, 12.606786, 0.5000004, -37.8)
+transform = Transform3D(0.7162803, 0, 0.6978127, 0, 1, 0, -0.6978127, 0, 0.7162803, 12.606786, 0.4076318, -37.8)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Corridor Area" unique_id=2106414442]
 transform = Transform3D(0.6427877, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.6427877, 0.46926117, 0.65000004, 0.77676773)
 shape = SubResource("BoxShape3D_dkxay")
+
+[node name="RigidTable" parent="." unique_id=1376104672 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, -27.5)
 
 [connection signal="body_entered" from="Classroom Area" to="." method="_on_classroom_area_body_entered"]
 [connection signal="body_entered" from="Corridor Area" to="." method="_on_corridor_area_body_entered"]

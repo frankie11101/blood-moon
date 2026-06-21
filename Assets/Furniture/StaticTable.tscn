@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bkdorwyrdxidw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dkxay"]
+size = Vector3(1, 0.035229493, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tcde0"]
+size = Vector3(0.1, 0.610376, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yyfm3"]
+size = Vector3(1, 0.6195313, 0.8)
+
+[node name="Table" type="StaticBody3D" unique_id=1835980144]
+collision_layer = 2
+
+[node name="Table body" type="Node3D" parent="." unique_id=1052841441]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table body" unique_id=226856512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 0.5823853, 0.10000038)
+mesh = SubResource("BoxMesh_dkxay")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Table body" unique_id=2074937928]
+transform = Transform3D(0.7110001, 0, 0, 0, 0.97362924, 0.17201476, 0, -0.22813629, 0.73411644, 0.40886116, 0.27898723, 0.40322876)
+mesh = SubResource("BoxMesh_tcde0")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Table body" unique_id=59067351]
+transform = Transform3D(0.7110001, 0, 0, 0, 0.97362924, 0.17201476, 0, -0.22813629, 0.73411644, -0.39113808, 0.27898723, 0.40322876)
+mesh = SubResource("BoxMesh_tcde0")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Table body" unique_id=106657811]
+transform = Transform3D(-0.7110001, -1.994431e-08, 6.4178494e-08, 0, 0.97362924, 0.17201477, -6.21576e-08, 0.22813635, -0.7341165, 0.40886116, 0.27898723, -0.19677162)
+mesh = SubResource("BoxMesh_tcde0")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Table body" unique_id=386114658]
+transform = Transform3D(-0.7110001, -1.994431e-08, 6.4178494e-08, 0, 0.97362924, 0.17201477, -6.21576e-08, 0.22813635, -0.7341165, -0.39113808, 0.27898723, -0.19677162)
+mesh = SubResource("BoxMesh_tcde0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=49271094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29023436, 0.10000038)
+shape = SubResource("BoxShape3D_yyfm3")

@@ -5,6 +5,57 @@ const JUMP_VELOCITY = 4.5
 # Higher number = faster turning. Lower number = slower, weightier turning.
 const ROTATION_SPEED = 10.0 
 
+@onready var raycast = $RayCast3D
+@onready var holdMarker = $"HoldMarker Node3D"
+
+var carriedObject: Node3D
+
+func _unhandled_input(event):
+	if event.is_action_pressed("interact"): # "E" key
+		if carriedObject == null:
+			tryPickUp()
+		else:
+			dropObject()
+
+func tryPickUp():
+	if raycast.is_colliding():
+		var target = raycast.get_collider()
+		if target is RigidBody3D:
+			carriedObject = target
+			
+			# Tell the object to ignore collisions with the player while carried
+			# Freeze the physics so it stops falling or reacting to gravity
+			# finally snap it exactly on the marker's position
+			carriedObject.add_collision_exception_with(self)
+			carriedObject.freeze = true
+			carriedObject.get_parent().remove_child(carriedObject)
+			holdMarker.add_child(carriedObject)
+			
+			carriedObject.position = Vector3.ZERO
+			carriedObject.rotation = Vector3.ZERO
+
+func dropObject():
+	if carriedObject != null:
+		var world = get_tree().current_scene #get main
+		var globalPos = carriedObject.global_position # to remember position before unparenting
+		
+		holdMarker.remove_child(carriedObject)
+		world.add_child(carriedObject)
+		
+		carriedObject.global_position = globalPos
+		carriedObject.remove_collision_exception_with(self)
+		carriedObject.freeze = false
+		
+		var forwardDirection = -global_transform.basis.z # CALCULATE THE TOSS FORCE
+		var horizontalForce = 3.0 # Define how hard you want to push it
+		var upwardForce = 2.0
+		
+		var tossVelocity = (forwardDirection * horizontalForce) + (Vector3.UP * upwardForce)
+		
+		carriedObject.linear_velocity = tossVelocity
+		
+		carriedObject = null
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
