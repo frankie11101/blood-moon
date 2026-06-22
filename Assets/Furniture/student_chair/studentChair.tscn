@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bxuqssehy1awv"]
+
+[ext_resource type="PackedScene" uid="uid://dshm5p0wbuq3y" path="res://Assets/Furniture/student_chair/studentChair glb.tscn" id="1_7x13u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkxay"]
+size = Vector3(0.07526855, 0.42333984, 0.41762695)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcde0"]
+size = Vector3(0.4963379, 0.34582978, 0.4)
+
+[node name="RigidChair" type="RigidBody3D" unique_id=344794473]
+transform = Transform3D(0.76604444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.76604444, 0, 0, 0)
+
+[node name="chair" parent="." unique_id=1611746001 instance=ExtResource("1_7x13u")]
+transform = Transform3D(0.454, 0, 0, 0, 0.454, 0, 0, 0, 0.454, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1877547006]
+transform = Transform3D(0.6427881, 0, -0.7660457, 0, 1, 0, 0.7660457, 0, 0.6427881, 0.13378857, 0.5587402, 0.14573191)
+shape = SubResource("BoxShape3D_dkxay")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1873759890]
+transform = Transform3D(0.6427881, 0, -0.7660457, 0, 1, 0, 0.7660457, 0, 0.6427881, -0.0021186927, 0.1780037, -0.0025247354)
+shape = SubResource("BoxShape3D_tcde0")
+debug_color = Color(0.89374715, 0.0002250594, 0.7848896, 0.41960785)

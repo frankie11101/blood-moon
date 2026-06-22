@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cnl0j1s50qwl"]
+
+[ext_resource type="PackedScene" uid="uid://bp2jhls66yg6f" path="res://Assets/Furniture/student_table/table.glb" id="1_27wby"]
+
+[node name="table" unique_id=422315254 instance=ExtResource("1_27wby")]
+
+[node name="defaultMaterial_001" parent="." index="0" unique_id=1716186089]
+transform = Transform3D(-0.014158497, 0, -0.0007646245, 0, 0.014179128, 0, 0.0007646245, 0, -0.014158497, 0, 0, 0.59999996)
+
+[node name="defaultMaterial" parent="." index="1" unique_id=1380249401]
+transform = Transform3D(-0.014158497, 0, -0.0007646245, 0, 0.014179128, 0, 0.0007646245, 0, -0.014158497, 0, 0, 0.59999996)

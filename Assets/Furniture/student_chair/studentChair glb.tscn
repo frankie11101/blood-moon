@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dshm5p0wbuq3y"]
+
+[ext_resource type="PackedScene" uid="uid://mputt43tpbf5" path="res://Assets/Furniture/student_chair/chair.glb" id="1_nobbk"]
+
+[node name="chair" unique_id=1611746001 instance=ExtResource("1_nobbk")]
+
+[node name="defaultMaterial_002" parent="." index="0" unique_id=330877575]
+transform = Transform3D(-0.010354545, 0, -0.009686643, 0, 0.014179127, 0, 0.009686643, 0, -0.010354545, 0, 0, 0)
+
+[node name="defaultMaterial_003" parent="." index="1" unique_id=1307352181]
+transform = Transform3D(-0.010354545, 0, -0.009686643, 0, 0.014179127, 0, 0.009686643, 0, -0.010354545, 0, 0, 0)

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c7pgfa6tnaqam"]
 
+[ext_resource type="PackedScene" uid="uid://cnl0j1s50qwl" path="res://Assets/Furniture/student_table/studentTable glb.tscn" id="1_vmtwi"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_dkxay"]
 size = Vector3(1, 0.035229493, 0.8)
 
@@ -7,13 +9,17 @@ size = Vector3(1, 0.035229493, 0.8)
 size = Vector3(0.1, 0.610376, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yyfm3"]
-size = Vector3(1, 0.6195313, 0.8)
+size = Vector3(0.6304321, 0.659375, 0.5139038)
 
 [node name="RigidTable" type="RigidBody3D" unique_id=1376104672]
 collision_layer = 2
 freeze = true
 
+[node name="table" parent="." unique_id=422315254 instance=ExtResource("1_vmtwi")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+
 [node name="Node3D" type="Node3D" parent="." unique_id=145425439]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=230215761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 0.5823853, 0.10000038)
@@ -36,5 +42,5 @@ transform = Transform3D(-0.7110001, -1.994431e-08, 6.4178494e-08, 0, 0.97362924,
 mesh = SubResource("BoxMesh_tcde0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=59271474]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29023436, 0.10000038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024749756, 0.31015623, -0.01742518)
 shape = SubResource("BoxShape3D_yyfm3")
