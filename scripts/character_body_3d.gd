@@ -3,7 +3,11 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 # Higher number = faster turning. Lower number = slower, weightier turning.
-const ROTATION_SPEED = 10.0 
+const ROTATION_SPEED = 10.0
+
+var last_camera: Camera3D = null
+var locked_direction := Vector3.ZERO
+var is_input_locked := false
 
 @onready var raycast = $RayCast3D
 @onready var holdMarker = $"HoldMarker Node3D"
@@ -75,17 +79,27 @@ func _physics_process(delta: float) -> void:
 	
 	# 3. If there is an active camera and the player is pressing a key
 	if camera and input_dir != Vector2.ZERO:
-		# Using your updated configuration without the negative sign
-		var cam_forward := camera.global_transform.basis.z
-		var cam_right := camera.global_transform.basis.x
-		
-		cam_forward.y = 0
-		cam_right.y = 0
-		cam_forward = cam_forward.normalized()
-		cam_right = cam_right.normalized()
-		
-		direction = (cam_right * input_dir.x + cam_forward * input_dir.y).normalized()
-
+		#Check if the camera swapped while holding direction
+		if last_camera != null and camera != last_camera and not is_input_locked:
+			is_input_locked = true #locked direction keeps its value from the prev frame
+		if is_input_locked:
+			direction = locked_direction
+		else:
+			var cam_forward := camera.global_transform.basis.z
+			var cam_right := camera.global_transform.basis.x
+			
+			cam_forward.y = 0
+			cam_right.y = 0
+			cam_forward = cam_forward.normalized()
+			cam_right = cam_right.normalized()
+			
+			direction = (cam_right * input_dir.x + cam_forward * input_dir.y).normalized()
+			locked_direction = direction
+	else:
+		is_input_locked = false
+	
+	last_camera = camera
+	
 	# 4. Apply movement and rotation
 	if direction != Vector3.ZERO:
 		velocity.x = direction.x * SPEED
