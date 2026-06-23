@@ -11,6 +11,11 @@
 [ext_resource type="Script" uid="uid://bgsmrd2pb74cq" path="res://scripts/cameras/classroom_camera_11a.gd" id="9_4c57u"]
 [ext_resource type="Script" uid="uid://d1cp11gbkoc0h" path="res://scripts/cameras/classroom_camera_12a.gd" id="9_kek77"]
 [ext_resource type="Script" uid="uid://c66f67ophn4jo" path="res://scripts/cameras/corridor_c_camera_a.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://cvphacxpgblyr" path="res://scripts/cameras/classroom_camera_ew_1.gd" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://d0erki6twvdlr" path="res://scripts/cameras/classroom_camera_ew_2.gd" id="13_ycdy4"]
+[ext_resource type="Script" uid="uid://h0jth5ygs4yf" path="res://scripts/cameras/classroom_camera_ew_3.gd" id="14_w48qg"]
+[ext_resource type="Script" uid="uid://c83dk5q1ccik2" path="res://scripts/cameras/classroom_camera_ew_4.gd" id="15_vivmo"]
+[ext_resource type="Script" uid="uid://bcw66vfgkb3s1" path="res://scripts/cameras/corridor_c_camera_b.gd" id="16_2cqfq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -55,6 +60,27 @@ size = Vector3(4.1, 1.9, 0.32)
 [sub_resource type="BoxShape3D" id="BoxShape3D_k31rq"]
 size = Vector3(7.3, 0.3, 5.9)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4t55"]
+size = Vector3(1.0327759, 2.074707, 0.55029297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7mgy"]
+size = Vector3(1.1526184, 2.2607422, 0.16519165)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
+size = Vector3(0.25012207, 2.2607422, 1.237915)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+size = Vector3(0.25012207, 2.2607422, 1.237915)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ydnqi"]
+size = Vector3(2.5229797, 0.38671875, 5.751953)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10eym"]
+size = Vector3(9.833374, 1, 5.701599)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cd40g"]
+size = Vector3(7.7810364, 1, 5.751648)
+
 [node name="Main" type="Node3D" unique_id=2115158399]
 script = ExtResource("1_1bvp3")
 
@@ -66,7 +92,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=626395670]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90101624, 0, -24.150837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3214884, 0, -21.684298)
 collision_mask = 3
 script = ExtResource("1_ig7tw")
 
@@ -917,7 +943,7 @@ use_collision = true
 size = Vector3(15.973633, 3.5, 0.35)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/ClassRoom17/CSGBox3D4" unique_id=634716700]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4, -0.76666737, -0.092383385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8443584, -0.76666737, -0.09238052)
 operation = 2
 size = Vector3(1, 2, 1)
 
@@ -1076,6 +1102,89 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, -40.8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7079347, 0.15, -2.4500008)
 shape = SubResource("BoxShape3D_k31rq")
 
+[node name="Classroom Camera EW1" type="Camera3D" parent="." unique_id=428737977 node_paths=PackedStringArray("player")]
+transform = Transform3D(0.63978076, 0, 0.7685574, 0, 1, 0, -0.7685574, 0, 0.63978076, -4.58963, 2.851328, -50.306473)
+script = ExtResource("12_dg77c")
+player = NodePath("../CharacterBody3D")
+
+[node name="Classroom Area EW1" type="Area3D" parent="." unique_id=1874393342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0661554, 1.558192, -46.88534)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Classroom Area EW1" unique_id=667591022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01638794, -0.5373535, 0.22485352)
+shape = SubResource("BoxShape3D_h4t55")
+
+[node name="Classroom Camera EW2" type="Camera3D" parent="." unique_id=2133279236 node_paths=PackedStringArray("player")]
+transform = Transform3D(0.20634013, 0, 0.97848034, 0, 1, 0, -0.97848034, 0, 0.20634013, 11.85463, 2.9699082, -50.043587)
+script = ExtResource("13_ycdy4")
+player = NodePath("../CharacterBody3D")
+
+[node name="Classroom Area EW2" type="Area3D" parent="." unique_id=494734061]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 10.858775, 0.25115168, -46.64899)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Classroom Area EW2" unique_id=942608921]
+transform = Transform3D(0.99999243, 0, 0, 0, 1, 0, 0, 0, 0.99999243, -0.02576828, 0.6303711, 0.098854065)
+shape = SubResource("BoxShape3D_w7mgy")
+
+[node name="Classroom Camera EW3" type="Camera3D" parent="." unique_id=95590240 node_paths=PackedStringArray("player")]
+transform = Transform3D(0.20634013, 0, 0.97848034, 0, 1, 0, -0.97848034, 0, 0.20634013, 26.905876, 2.9699082, -50.043587)
+script = ExtResource("14_w48qg")
+player = NodePath("../CharacterBody3D")
+
+[node name="Classroom Area EW3" type="Area3D" parent="." unique_id=1443963106]
+transform = Transform3D(0.0074916333, 0, 0.99997187, 0, 1, 0, -0.99997187, 0, 0.0074916333, 26.287897, 0.25115168, -46.64899)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Classroom Area EW3" unique_id=1075142455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07619858, 0.6303711, 0.004207611)
+shape = SubResource("BoxShape3D_dg77c")
+
+[node name="Classroom Camera EW4" type="Camera3D" parent="." unique_id=1880309165 node_paths=PackedStringArray("player")]
+transform = Transform3D(0.20634013, 0, 0.97848034, 0, 1, 0, -0.97848034, 0, 0.20634013, 41.847466, 2.9699082, -50.043587)
+script = ExtResource("15_vivmo")
+player = NodePath("../CharacterBody3D")
+
+[node name="Classroom Area EW4" type="Area3D" parent="." unique_id=1090500994]
+transform = Transform3D(0.0074916333, 0, 0.99997187, 0, 1, 0, -0.99997187, 0, 0.0074916333, 41.796314, 0.25115168, -46.64899)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Classroom Area EW4" unique_id=126156723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07619858, 0.6303711, 0.004207611)
+shape = SubResource("BoxShape3D_ycdy4")
+debug_color = Color(0.9843137, 0, 0.36862746, 1)
+
+[node name="CorridorC Camera B" type="Camera3D" parent="." unique_id=951152395 node_paths=PackedStringArray("player")]
+transform = Transform3D(0.9952397, -9.268891e-09, -0.09745761, 0.020177864, 0.978332, 0.20605679, 0.095345885, -0.20704238, 0.97367483, 32.140766, 2.8820634, -40.659306)
+script = ExtResource("16_2cqfq")
+player = NodePath("../CharacterBody3D")
+
+[node name="CorridorC Area A4" type="Area3D" parent="." unique_id=1774057877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.65715, 0.25115168, -43.203533)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CorridorC Area A4" unique_id=582077860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21025085, -0.30664063, -0.109375)
+shape = SubResource("BoxShape3D_ydnqi")
+
+[node name="CorridorC Area A3" type="Area3D" parent="." unique_id=1493992894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.796328, 0.25115168, -42.989937)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CorridorC Area A3" unique_id=142778366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4489136, 0, -0.29916382)
+shape = SubResource("BoxShape3D_10eym")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="CorridorC Area A2" type="Area3D" parent="." unique_id=1026590943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.07266, 0.25115168, -42.989937)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CorridorC Area A2" unique_id=675678819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7624664, 0, -0.28268433)
+shape = SubResource("BoxShape3D_cd40g")
+debug_color = Color(0.7662124, 0.6074362, 0, 1)
+
+[node name="Cameras" type="Node3D" parent="." unique_id=1728045784]
+
+[node name="EW" type="Node3D" parent="Cameras" unique_id=1152426724]
+
+[node name="Center" type="Node3D" parent="Cameras" unique_id=319727172]
+
 [connection signal="body_entered" from="Classroom Area 12B" to="." method="_on_classroom_area_body_entered"]
 [connection signal="body_entered" from="Corridor Area B2" to="." method="_on_corridor_area_body_entered"]
 [connection signal="body_entered" from="Corridor Area B1" to="." method="_on_corridor_area_body_entered"]
@@ -1088,3 +1197,10 @@ shape = SubResource("BoxShape3D_k31rq")
 [connection signal="body_entered" from="Corridor Area B3" to="." method="_on_corridor_area_b_3_body_entered"]
 [connection signal="body_entered" from="Corridor Area A4" to="." method="_on_corridor_area_a_4_body_entered"]
 [connection signal="body_entered" from="CorridorC Area A1" to="." method="_on_corridor_c_area_a_1_body_entered"]
+[connection signal="body_entered" from="Classroom Area EW1" to="." method="_on_classroom_area_ew_1_body_entered"]
+[connection signal="body_entered" from="Classroom Area EW2" to="." method="_on_classroom_area_ew_2_body_entered"]
+[connection signal="body_entered" from="Classroom Area EW3" to="." method="_on_classroom_area_ew_3_body_entered"]
+[connection signal="body_entered" from="Classroom Area EW4" to="." method="_on_classroom_area_ew_4_body_entered"]
+[connection signal="body_entered" from="CorridorC Area A4" to="." method="_on_corridor_c_area_a_4_body_entered"]
+[connection signal="body_entered" from="CorridorC Area A3" to="." method="_on_corridor_c_area_a_3_body_entered"]
+[connection signal="body_entered" from="CorridorC Area A2" to="." method="_on_corridor_c_area_a_2_body_entered"]
