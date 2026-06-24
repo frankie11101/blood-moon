@@ -1,17 +1,17 @@
 extends Node3D
 
-@onready var classroom_camera12b: Camera3D = $"Classroom Camera 12B"
-@onready var classroom_camera12a: Camera3D = $"Classroom Camera 12A"
-@onready var classroom_camera11b: Camera3D = $"Classroom Camera 11B"
-@onready var classroom_camera11a: Camera3D = $"Classroom Camera 11A"
-@onready var classroom_camera_ew1: Camera3D = $"Classroom Camera EW1"
-@onready var classroom_camera_ew2: Camera3D = $"Classroom Camera EW2"
-@onready var classroom_camera_ew3: Camera3D = $"Classroom Camera EW3"
-@onready var classroom_camera_ew4: Camera3D = $"Classroom Camera EW4"
-@onready var corridorb_camerab: Camera3D = $"CorridorB Camera B"
-@onready var corridorb_cameraa: Camera3D = $"CorridorB Camera A"
-@onready var corridorc_cameraa: Camera3D = $"CorridorC Camera A"
-@onready var corridorc_camerab: Camera3D = $"CorridorC Camera B"
+@onready var classroom_camera12b: Camera3D = $Cameras/Center/"Classroom Camera 12B"
+@onready var classroom_camera12a: Camera3D = $Cameras/Center/"Classroom Camera 12A"
+@onready var classroom_camera11b: Camera3D = $Cameras/Center/"Classroom Camera 11B"
+@onready var classroom_camera11a: Camera3D = $Cameras/Center/"Classroom Camera 11A"
+@onready var classroom_camera_ew1: Camera3D = $Cameras/EW/"Classroom Camera EW1"
+@onready var classroom_camera_ew2: Camera3D = $Cameras/EW/"Classroom Camera EW2"
+@onready var classroom_camera_ew3: Camera3D = $Cameras/EW/"Classroom Camera EW3"
+@onready var classroom_camera_ew4: Camera3D = $Cameras/EW/"Classroom Camera EW4"
+@onready var corridorb_camerab: Camera3D = $Cameras/Center/"CorridorB Camera B"
+@onready var corridorb_cameraa: Camera3D = $Cameras/Center/"CorridorB Camera A"
+@onready var corridorc_cameraa: Camera3D = $Cameras/EW/"CorridorC Camera A"
+@onready var corridorc_camerab: Camera3D = $Cameras/EW/"CorridorC Camera B"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
